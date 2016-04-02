@@ -1,0 +1,212 @@
+set nocompatible
+let s:cpo_save=&cpo
+set cpo&vim
+inoremap <F12> :bnexti
+inoremap <F11> :bpreviousi
+inoremap <F10> :bdeletei
+map! <xHome> <Home>
+map! <xEnd> <End>
+map! <S-xF4> <S-F4>
+map! <S-xF3> <S-F3>
+map! <S-xF2> <S-F2>
+map! <S-xF1> <S-F1>
+map! <xF4> <F4>
+map! <xF3> <F3>
+map! <xF2> <F2>
+map! <xF1> <F1>
+map  <Home>
+map  <Left>
+map  x
+map  <End>
+map  <Right>
+map  <Down>
+map  <Up>
+map k :bdelete
+map  :bdelete!
+map b :bn
+map o w           " Switch to the next window
+map 0 :q<NL>         " Return to single window (delete selected)
+map 1 :only <NL>       " Return to single window (delete non selected)
+map 2 :split<NL>       " Split the window in two
+map ,h :call LoadHeader()
+map ,c :call LoadCModule()
+vnoremap ,A :call Align('\s*\('.input('delimiter? ').'\)\s*', ' \1 ', ' ', 'g')
+vnoremap ,a :call Align('\s*\('.input('delimiter? ').'\)\s*', ' \1 ', ' ', '')
+map Q gq
+vnoremap \AlignLast :call Align('\s*\('.input('delimiter? ').'\)', ' \1', ' ', 'l')
+vnoremap \AlignAll :call Align('\s*\('.input('delimiter? ').'\)\s*', ' \1 ', ' ', 'g')
+vnoremap \AlignFirst :call Align('\s*\('.input('delimiter? ').'\)\s*', ' \1 ', ' ', '')
+vmap \l \AlignLast
+vmap \f \AlignFirst
+vmap \a \AlignAll
+vnoremap <F12> :bnextv
+nnoremap <F12> :bnext
+vnoremap <F11> :bpreviousv
+nnoremap <F11> :bprevious
+vnoremap <F10> :bdeletev
+nnoremap <F10> :bdelete
+nnoremap <F9> kj
+nnoremap <F8> kj
+nnoremap <F7> kj
+nnoremap <SNR>7_Paste "=@+.'xy'gPFx"_2x:echo
+map <xHome> <Home>
+map <xEnd> <End>
+map <S-xF4> <S-F4>
+map <S-xF3> <S-F3>
+map <S-xF2> <S-F2>
+map <S-xF1> <S-F1>
+map <xF4> <F4>
+map <xF3> <F3>
+map <xF2> <F2>
+map <xF1> <F1>
+map!  <Home>
+map!  <Left>
+map!  xi
+map!  A
+map!  <Right>
+map!  <Down>
+map!  <Up>
+map! k :bdeletei
+map!  :bdelete!i
+map! b :bni
+map! o wi           " Switch to the next window
+map! 0 :q<NL>i         " Return to single window (delete selected)
+map! 1 :only <NL>i       " Return to single window (delete non selected)
+map! 2 :split<NL>i       " Split the window in two
+abbr __MAIN int main(int argc, char** argv)
+abbr __FUN : call InsCfun()
+abbr sj "Scott James"
+abbr nr "Not Required"
+abbr na "Not Applicable"
+cabbr comment :s/^/\/\*/:'<,'>s/$/\*\//
+let &cpo=s:cpo_save
+unlet s:cpo_save
+set autoindent
+set autowrite
+set background=dark
+set backspace=2
+set backup
+set cindent
+set comments=sr:/*,mb:*,el:*/
+set formatoptions=bcroqt
+set hidden
+set hlsearch
+set ignorecase
+set incsearch
+set laststatus=2
+set makeprg=clearmake
+set mouse=a
+set path=.,../include
+set ruler
+set shiftwidth=2
+set shortmess=at
+set showcmd
+set showmatch
+set statusline=Vim-%{Version()}\ %{getcwd()}\ %F\ %=<%l,%c%V>
+if &syntax != 'conf'
+set syntax=conf
+endif
+set tabstop=2
+set textwidth=180
+set wildmenu
+set wildmode=list:longest
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd ~/
+set shortmess=aoO
+badd +1 .bashrc
+badd +1 .bash_siteconfig
+badd +0 .bash_aliases
+silent! argdel *
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+normal t
+set winheight=1 winwidth=1
+argglobal
+edit .bash_aliases
+setlocal autoindent
+setlocal autoread
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal cindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal comments=sr:/*,mb:*,el:*/
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal noexpandtab
+if &filetype != 'conf'
+setlocal filetype=conf
+endif
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatoptions=bcroqt
+setlocal grepprg=
+setlocal iminsert=2
+setlocal imsearch=2
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal nolinebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+setlocal nonumber
+setlocal path=
+setlocal nopreviewwindow
+setlocal noreadonly
+setlocal noscrollbind
+setlocal shiftwidth=2
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=0
+setlocal suffixesadd=
+setlocal swapfile
+if &syntax != 'conf'
+setlocal syntax=conf
+endif
+setlocal tabstop=2
+setlocal tags=
+setlocal textwidth=180
+setlocal thesaurus=
+set nowrap
+setlocal nowrap
+setlocal wrapmargin=0
+silent! normal zE
+let s:l = 1 - ((0 * winheight(0) + 33) / 67)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal zt
+1
+normal 0
+set winheight=1 winwidth=20 shortmess=at
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . s:sx
+endif
+let &so = s:so_save | let &siso = s:siso_save
